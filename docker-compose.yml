@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+    client:
+        image: vue-frontend:latest
+        ports:
+            - "5173:80"
+        volumes:
+            - ./client/dist:/usr/share/nginx/html:ro
+        depends_on:
+            - server
+
+    server:
+        image: node-backend:latest
+        command: node ./server.js
+        working_dir: /app
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./server:/app
+            - /app/node_modules
+        environment:
+            - NODE_ENV=production

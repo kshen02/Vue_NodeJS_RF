@@ -1,0 +1,10 @@
+:root:root {
+    --van-primary-color: #39c5bb;
+    --color-background: #f6fdff;
+    --van-font-size-lg: 24px;
+    --van-font-size-md: 16px;
+
+    --van-grid-item-content-background: #e8fffd;
+    --van-grid-item-icon-size: 40px;
+    --van-grid-item-text-font-size: 16px;
+}

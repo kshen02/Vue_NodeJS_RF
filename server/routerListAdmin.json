@@ -1,0 +1,140 @@
+[
+    {
+        "path": "/menu",
+        "name": "menu",
+        "component": "MenuView",
+        "children": [
+            {
+                "path": "/putaway",
+                "name": "putaway",
+                "component": "MenuView",
+                "meta": {
+                    "title": "上架",
+                    "icon": "like-o"
+                },
+                "children": [
+                    {
+                        "path": "/standardputaway",
+                        "name": "standardputaway",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": false,
+                            "title": "标准2D上架",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/batchputaway",
+                        "name": "batchputaway",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": false,
+                            "title": "批量上架",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/vehicleputaway",
+                        "name": "vehicleputaway",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": false,
+                            "title": "车载上架",
+                            "icon": "description-o"
+                        }
+                    }
+                ]
+            },
+            {
+                "path": "/pick",
+                "name": "pick",
+                "component": "MenuView",
+                "meta": {
+                    "title": "拣货",
+                    "icon": "phone-o"
+                },
+                "children": [
+                    {
+                        "path": "/vdwpick",
+                        "name": "vdwpick",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": true,
+                            "title": "VDW拣货",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/vehiclehoming",
+                        "name": "vehiclehoming",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": false,
+                            "title": "车载归位",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/vdwscanlabel",
+                        "name": "vdwscanlabel",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": true,
+                            "title": "VDW逐箱扫描",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/vehiclepick",
+                        "name": "vehiclepick",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": false,
+                            "title": "车载拣货",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/pickdown",
+                        "name": "pickdown",
+                        "component": "FormView",
+                        "meta": {
+                            "enable": true,
+                            "title": "拣货下架",
+                            "icon": "description-o"
+                        }
+                    }
+                ]
+            },
+            {
+                "path": "/admin",
+                "name": "admin",
+                "component": "MenuView",
+                "meta": {
+                    "title": "管理员菜单",
+                    "icon": "manager-o"
+                },
+                "children": [
+                    {
+                        "path": "/register",
+                        "name": "register",
+                        "component": "RegisterView",
+                        "meta": {
+                            "title": "注册新用户",
+                            "icon": "description-o"
+                        }
+                    },
+                    {
+                        "path": "/accmanage",
+                        "name": "accmanage",
+                        "component": "AccountManageView",
+                        "meta": {
+                            "title": "管理用户",
+                            "icon": "description-o"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

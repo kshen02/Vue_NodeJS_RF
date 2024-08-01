@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
+<script>
+    var plusReady = function (callback) {
+        if (window.plus) {
+            callback()
+        } else {
+            document.addEventListener("plusready", callback)
+        }
+    }
+
+    plusReady(function () {
+        var firstBack = 0
+        var handleBack = function () {
+            var currentWebview = plus.webview.currentWebview()
+            var now =
+                Date.now ||
+                function () {
+                    return new Date().getTime()
+                }
+
+            currentWebview.canBack(function (evt) {
+                /**
+                 * 有可后退的历史记录，则后退。
+                 * 否则，关闭当前窗口。
+                 * 如果当前窗口是入口页，那么执行退出的逻辑。
+                 */
+                if (location.pathname == "/menu" || location.pathname == "/") {
+                    if (!firstBack) {
+                        firstBack = now()
+                        plus.nativeUI.toast("再按一次退出应用")
+
+                        setTimeout(function () {
+                            firstBack = 0
+                        }, 2000)
+                    } else if (now() - firstBack < 2000) {
+                        plus.runtime.quit()
+                    }
+                } else {
+                    if (evt.canBack) {
+                        history.back()
+                    } else {
+                        currentWebview.close("auto")
+                    }
+                }
+            })
+        }
+
+        plus.key.addEventListener("backbutton", handleBack)
+    })
+</script>
